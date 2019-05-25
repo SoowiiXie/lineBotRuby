@@ -1,5 +1,5 @@
 class EventProcessor
-  def self.process(text)
+  def process(text)
     message = {
       "type": "text",
       "text": text

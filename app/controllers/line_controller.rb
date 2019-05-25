@@ -19,7 +19,7 @@ class LineController < ActionController::API
     puts "用戶的輸入: #{text}"
     puts ""
     
-    message = EventProcessor.process(text)
+    message = EventProcessor.new.process(text)
     puts ""
     puts "聊天機器人的回應: #{message}"
     puts ""
