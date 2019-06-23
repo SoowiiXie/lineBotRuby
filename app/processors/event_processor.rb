@@ -114,11 +114,3 @@ class EventProcessor
       }
     }
   end
-
-  def fake_ai(text)
-    return {
-      "type": "text",
-      "text": text.tr('嗎', '').tr('?？', '!！')
-    }
-  end
-end
