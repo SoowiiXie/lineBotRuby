@@ -1,10 +1,10 @@
  class EventProcessor
   def process(text)
     call_sheety_api.each do |data|
-      if data["keyword"] == text
+      if data["keyword"].to_s == text
         return {  
           "type": "text",
-          "text": data["message"]
+          "text": data["message"].to_s
         }
       end
     end
@@ -12,7 +12,7 @@
   end
 
   def call_sheety_api
-    uri = URI("https://api.sheety.co/0b69f89c-6d55-4413-bde5-0b0d91b2627e")
+    uri = URI("https://api.sheety.co/6110fffb-76e4-4d8f-9ca1-b27e2c31da26")
     body = Net::HTTP.get(uri)
     JSON.parse(body)
   end
