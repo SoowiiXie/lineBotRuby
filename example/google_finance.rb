@@ -4,7 +4,7 @@
       code = data["code"]
       name = data["name"]
       price = data["price"]
-      if code == text || name == text
+      if code.to_s == text || name == text
         return {  
           "type": "text",
           "text": "#{code} #{name}的當前價格為: #{price}"
