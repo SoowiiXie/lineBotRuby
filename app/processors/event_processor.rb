@@ -1,30 +1,33 @@
 class EventProcessor
   def process(text)
-    if text == "抽"
-      return random_image
-    end
-
-    if text == "占卜"
-      return fortune
-    end
-
-    if text == "大冒險"
-      return fun_slots
-    end
-
-    if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
-      return menu
-    end
-
-    return fake_ai(text)
+    return random_image if text == "抽"
+    return fortune if text == "占卜"
+    return fun_slots if text == "大冒險"
+    return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
+    return process(text)
   end
 
   def random_image
     return [
       {
         "type": "image",
-        "originalContentUrl": "https://photos.app.goo.gl/9ZoF4CCeSCSBinsN9",
-        "previewImageUrl": "https://photos.app.goo.gl/9ZoF4CCeSCSBinsN9"
+        "originalContentUrl": "https://images.unsplash.com/photo-1477764250597-dffe9f601ae8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "previewImageUrl": "https://images.unsplash.com/photo-1477764250597-dffe9f601ae8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      },
+      {
+        "type": "image",
+        "originalContentUrl": "https://images.unsplash.com/photo-1519900270450-3a6adec39956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "previewImageUrl": "https://images.unsplash.com/photo-1519900270450-3a6adec39956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      },
+      {
+        "type": "image",
+        "originalContentUrl": "https://images.unsplash.com/photo-1545460580-36c1957cfde1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1266&q=80",
+        "previewImageUrl": "https://images.unsplash.com/photo-1545460580-36c1957cfde1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1266&q=80"
+      },
+      {
+        "type": "image",
+        "originalContentUrl": "https://images.unsplash.com/photo-1537787009205-dac68f7e2759?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "previewImageUrl": "https://images.unsplash.com/photo-1537787009205-dac68f7e2759?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       },
       {
         "type": "image",
@@ -98,5 +101,23 @@ class EventProcessor
         ]
       }
     }
+  end
+
+  def process(text)
+    call_sheety_api.each do |data|
+      if data["keyword"].to_s == text
+        return {  
+          "type": "text",
+          "text": data["message"].to_s
+        }
+      end
+    end
+    return nil
+  end
+
+  def call_sheety_api
+    uri = URI("https://api.sheety.co/6110fffb-76e4-4d8f-9ca1-b27e2c31da26")
+    body = Net::HTTP.get(uri)
+    JSON.parse(body)
   end
 end
