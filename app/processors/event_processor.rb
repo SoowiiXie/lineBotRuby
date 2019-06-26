@@ -4,7 +4,7 @@ class EventProcessor
     return fortune if text == "占卜"
     return fun_slots if text == "大冒險"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
-    return fake_ai(text)
+    return sheet(text)
   end
 
   def random_image
@@ -103,10 +103,23 @@ class EventProcessor
     }
   end
 
-  def fake_ai(text)
-    return {
-      "type": "text",
-      "text": text.tr('嗎', '').tr('?？', '!！')
-    }
+
+
+  def sheet(text)
+    call_sheety_api.each do |data|
+      if data["keyword"].to_s == text
+        return {  
+          "type": "text",
+          "text": data["message"].to_s
+        }
+      end
+    end
+    return nil
+  end
+
+  def call_sheety_api
+    uri = URI("https://api.sheety.co/6110fffb-76e4-4d8f-9ca1-b27e2c31da26")
+    body = Net::HTTP.get(uri)
+    JSON.parse(body)
   end
 end
