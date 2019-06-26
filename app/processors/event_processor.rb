@@ -3,7 +3,7 @@ class EventProcessor
     return random_image if text == "抽"
     return fortune if text == "占卜"
     return fun_slots if text == "大冒險"
-    return sheet(text) if text =="股票"
+    return sheet2(text) if text =="股票"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
     return sheet(text)
   end
