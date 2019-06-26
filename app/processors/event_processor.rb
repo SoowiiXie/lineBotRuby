@@ -103,6 +103,8 @@ class EventProcessor
     }
   end
 
+  
+
   def process(text)
     call_sheety_api.each do |data|
       if data["keyword"].to_s == text
