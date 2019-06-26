@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<title>顯示現在時間程式範例</title>
+<meta charset="UTF-8">
+</head>
+<body onload="ShowCurrentTime()">
+<div id="showobject"></div>
+    <header id="header">
+		<div class="logo">
+				<a href="index.html"><img src="img/logo-001.png"></a>
+		</div>
+	</header>
+    <div id="menu-wrapper">
+        
+    </div>
+    <div id="wrapper">
+        <aside id="aside" >
+            <button class="btn"><a href="index.html">首頁</a></button>
+        </aside>
+    </div>
+<script>
+	function ShowCurrentTime(){
+		document.getElementById('showobject').innerHTML = new Date();
+		setTimeout('ShowCurrentTime()',1000);
+	}		
+</script>
+<noscript>
+這是使用者的瀏覽器沒有設定允許執行JavaScript時出現的替代文字
+</noscript>
+</body>
+</html>

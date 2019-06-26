@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<title>JavaScript的一維陣列程式範例</title>
+<meta charset="utf-8">
+</head>
+<body>
+	<header id="header">
+		<div class="logo">
+				<a href="index.html"><img src="img/logo-001.png"></a>
+		</div>
+	</header>
+    <div id="menu-wrapper">
+        
+    </div>
+    <div id="wrapper">
+      <aside id="aside" >
+          <button class="btn"><a href="index.html">首頁</a></button>
+      </aside>
+  </div>
+<script>
+var employee = new Array("我的","0932276826","媽媽","0911241815","妹妹","0925708238");
+var number = employee.length/2;
+var salary = new Array(3);
+salary[0] = "34k多";
+salary[1] = "4Xk";
+salary[2] = 29213;
+//陣列裡面只能放數值，不能放文字，數值前面的0都會省略
+document.write("家庭人數: " + number + "人");
+document.write("<br>"+"姓名 電話"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"&nbsp;"+"月薪");
+document.write("<br>"+employee[0]+"&nbsp;"+employee[1]+"&nbsp;"+salary[0]);
+document.write("<br>"+employee[2]+"&nbsp;"+employee[3]+"&nbsp;"+salary[1]);
+document.write("<br>"+employee[4]+"&nbsp;"+employee[5]+"&nbsp;"+salary[2]);
+</script>
+
+<script type="text/javascript" src="sorter.js"></script>
+<h3>XX銷售報表</h3>
+<table border="1" cellspacing="0">
+<thead>
+  <tr>
+    <td class="item"><a href="javascript:sorter.sortBy('item');">項次</a></td>
+    <td class="ean"><a href="javascript:sorter.sortBy('ean');">條碼</a></td>
+    <td class="pname"><a href="javascript:sorter.sortBy('pname');">商品名稱</a></td>
+    <td class="qty"><a href="javascript:sorter.sortBy('qty');">銷售量</a></td>
+    <td class="amt"><a href="javascript:sorter.sortBy('amt');">銷售額</a></td>
+  </tr>
+</thead>
+<tbody id="reportTbody">
+  <tr>
+    <td>1</td>
+    <td>4203803</td>
+    <td>輕鬆錠</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</tbody>
+</table>
+
+<noscript>
+這是使用者的瀏覽器沒有設定允許執行JavaScript時出現的替代文字
+</noscript>
+</body>
+</html>

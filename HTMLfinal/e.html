@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript的巢狀迴圈指令程式範例</title>
+</head>
+<body>
+<header id="header">
+	<div class="logo">
+		<a href="index.html"><img src="img/logo-001.png"></a>
+	</div>
+</header>
+    <div id="menu-wrapper">
+        
+    </div>
+    <div id="wrapper">
+        <aside id="aside" >
+            <button class="btn"><a href="index.html">首頁</a></button>
+        </aside>
+    </div>
+<h1><font size='12' color='#FF00FF' face='標楷體'>99乘法表</font></h1>
+
+<script>
+var x,y,evenodd,ctr=0;
+for(x=1;x<=9;x++)
+{
+	for(y=1;y<=9;y++)
+	{
+		evenodd="";
+		if(((x*y)%5)==0)
+		{
+		ctr=ctr+1;
+		}
+       if((x*y)<10)
+	   {
+		if(((x*y)%5)==0)
+		{
+		document.write("<font color='red'>"+x+" * "+y+" = "+x*y+evenodd+"&nbsp;"+"&nbsp;"+"&nbsp;"+"</font>");
+		}else {
+		document.write(x+" * "+y+" = "+x*y+evenodd+"&nbsp;"+"&nbsp;"+"&nbsp;");
+		}
+	   }
+	   else
+	   {
+		if(((x*y)%5)==0)
+		{
+		document.write("<font color='red'>"+x+" * "+y+" = "+x*y+evenodd+"&nbsp;"+"</font>");
+		}else {
+		document.write(x+" * "+y+" = "+x*y+evenodd+"&nbsp;");
+		}
+	   }
+		
+	}
+document.write("<br/>");
+}
+document.write("<br/>乘積為5的倍數的算式以紅色標示共有"+ctr+"個<br/>");
+</script>
+<noscript>
+這是使用者的瀏覽器沒有設定允許執行JavaScript時出現的替代文字
+</noscript>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<title>JavaScript的變數宣告、輸出入及運算式</title>
+<meta name="author"content="D10613013 謝戍乂">
+<meta charset="utf-8">
+<style>
+div {
+    width:300px;
+    border: 2px blue solid;
+    margin: 5px;
+}    
+</style>
+</head>
+<body>
+<script>
+var name=prompt("name:","");
+var S1=prompt("課程參與成績:","");
+var S2=prompt("平時成績:","");
+var S3=prompt("期中考成績:","");
+var S4=prompt("期末考成績:","");
+var S5;
+
+var str="姓名:";
+document.write(str+name+"<br>");
+
+var str="課程參與成績 is:";
+
+var str="平時成績 is:";
+
+var str="期中考成績 is:";
+
+var str="期末考成績 is:";
+
+var str="學期成績:";
+S5=S1*0.3+S2*0.3+S3*0.2+S4*0.2;
+document.write(str+S5+"<br>");
+
+if(S5>=90)
+{
+document.write("A級分<br>");
+}
+else if(S5<60)
+{
+document.write("C級分<br>");
+}
+else
+{
+document.write("B級分<br>");
+}
+
+</script>
+</body>
+</html>
