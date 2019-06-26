@@ -127,7 +127,7 @@ class EventProcessor
 
   def sheet(text)
     call_sheety_api.each do |data|
-      if data["keyword"].to_s == text
+      if data["keyword"] == text
         return {  
           "type": "text",
           "text": data["message"].to_s
