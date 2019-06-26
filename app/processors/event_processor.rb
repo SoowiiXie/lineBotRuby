@@ -23,8 +23,8 @@ class EventProcessor
     return [
       {
         "type": "image",
-        "originalContentUrl": "https://photos.google.com/share/AF1QipNYBhBN6scbibjpzMDUyzait_OX33FNvuTCnGB67RJJfyDYVnUje-x_eUKwGLiffA/photo/AF1QipMTLHsSTLqJqBv_GoUZsR12Pmcw6EmeUEdNower?key=bjh2S1Q3UTRJNkhoV2RpVFVnamNiYUZ2dGRwYnh3",
-        "previewImageUrl": "https://photos.google.com/share/AF1QipNYBhBN6scbibjpzMDUyzait_OX33FNvuTCnGB67RJJfyDYVnUje-x_eUKwGLiffA/photo/AF1QipMTLHsSTLqJqBv_GoUZsR12Pmcw6EmeUEdNower?key=bjh2S1Q3UTRJNkhoV2RpVFVnamNiYUZ2dGRwYnh3"
+        "originalContentUrl": "https://photos.app.goo.gl/9ZoF4CCeSCSBinsN9",
+        "previewImageUrl": "https://photos.app.goo.gl/9ZoF4CCeSCSBinsN9"
       },
       {
         "type": "image",
