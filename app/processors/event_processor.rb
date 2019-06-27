@@ -99,6 +99,13 @@ class EventProcessor
               "text": "大冒險"
             }
           },
+          {
+            "type": "action",
+            "action": {
+			  "type": "uri",
+              "uri": "https://thxu.herokuapp.com/"
+            }
+          },          
         ]
       }
     }
