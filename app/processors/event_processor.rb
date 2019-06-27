@@ -58,6 +58,16 @@ class EventProcessor
     }
   end
 
+  def indexMe
+  	return {
+      "type": "action",
+ 	       "action": {
+				"type": "uri",
+ 	        	"uri": "https://thxu.herokuapp.com/"
+    	    }
+    }
+  end
+
   def fun_slots
     where = ["教室","廁所","公園","電影院","餐廳","陽台"].sample
     gender = ["同性", "異性", "男性", "女性"].sample
@@ -110,16 +120,6 @@ class EventProcessor
         ]
       }
     }
-  end
-
-  def indexMe
-    "type": "action",
-        "action": {
-			"type": "uri",
-            "uri": "https://thxu.herokuapp.com/"
-        }
-    end
-    return nil
   end
 
   def sheet(text)
