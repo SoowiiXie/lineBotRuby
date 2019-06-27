@@ -1,102 +1,83 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-<title>英日泰語學習網</title>
-<meta charset="utf-8">
-<link href="css/mysite.css" rel="stylesheet" type="text/css">
-<link href="css/mymenu.css" rel="stylesheet" type="text/css">
-<link href="css/myfig.css" rel="stylesheet" type="text/css">
-<link href="css/mybtn.css" rel="stylesheet" type="text/css">
-<style>
-    main{
-        background-color: black;
-		width :90%;
-		height: auto;
-    }
-	.logo{
-        background-color: white;
-    }
-	.menu{
-		z-index: 1; 
-		background-color: darkgreen;
-		position:relative;
-		float:right;
-		width:100%; 
-	}
-	#wrapper{
-		z-index: 2; 
-		position:relative;
-		float:left;
-		width:10%;
-		height:894px;
-	}
-	#footer{
-		clear:both;
-		height:10%;
-	}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <title>謝戍乂 Soowii</title>
 </head>
-<body style="color:white;">
-<div id="all">
-<header id="header">
-<header id="header">
-    <div class="logo">
-        <a href="index.html"><img src="img/logo-001.png"></a>
-    </div>
-</header>
-    
-    <div id="menu-wrapper">
-        
-    </div>
-    <div id="wrapper">
-        <aside id="aside" >
-            <button class="btn"><a href="PHP06.php">三大類型語系</a></button>
-            <button class="btn"><a href="PHP07.php">旅遊資訊</a></button>
-            <button class="btn"><a href="PHP08.php">作者資訊</a></button>
-            <button class="btn"><a href="PHP09.php">網網相連</a></button>
-        </aside>
+<body>
+  <main>
+    <section class="info">
+      <div class="bio">
+        <img src="images/soowii2.jpg" alt="avatar" class="avatar">
+        <h1>謝戍乂 Soowii</h1>
+        <h2>只有 <i class="fab fa-facebook-f" ></i> 有連結</h2>
+        <footer class="social-links">
 
-    </div>
-	        <main>
-				<ul class="menu">
-            <li><a href="london.html">泰文</a>
-                <ul>
-                    <li><a href="#">字母>></a>
-                        <ul>
-                            <li><a href="t1.html">總字母表</a></li>
-                            <li><a href="t2.html">中子音</a></li>
-                            <li><a href="t3.html">高子音</a></li>
-                            <li><a href="t4.html">低子音</a></li>
-                            <li><a href="t5.html">母音</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="t6.html">聲調</a></li>
-                    <li><a href="t7.html">特殊規則</a></li>
-                </ul>
-            </li>
-            <li><a href="#">日文</a>
-                <ul>
-                    <li><a href="j1.html">字母表</a></li>
-                    <li><a href="j2.html">三類動詞</a></li>
-                 </ul>
-            </li>
-            <li><a href="e.html">英文</a></li>
-         </ul>
-             <img src="img/max-bender-685474-unsplash.jpg" width="300" alt="嘟嘟車">
-             <img src="img/max-bender-685474-unsplash.jpg" height="300" alt="嘟嘟車">
-             <img src="img/max-bender-685474-unsplash.jpg" width="300" height="300" alt="嘟嘟車">
-     
-             <audio controls>
-                <source src="aud/Italy_Jr.mp3" type="audio/mp3">
-                <a href="aud/Italy_Jr.mp3">Download</a>
-             </audio>
-     
-            <video controls width="845">
-                 <source src="vdo/Pexels Videos 5004.mp4">
-                 <a href="vdo/Pexels Videos 5004.mp4">Download</a>
-         </video>
-        </main>
-    <footer id="footer">作者姓名:謝戍乂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;連絡電話:0932276826</footer>
-</div>
+          <div>
+            <a href="https://www.facebook.com/soowii.xie/about?lst=100000313171148%3A100000313171148%3A1552315168"><i class="fab fa-facebook-f" ></i></a>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-google-plus-g"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+
+        </footer>
+      </div>
+      <div class="download">
+        <a href="#">下載履歷</a>
+      </div>
+    </section>
+
+    <section class="content">
+      <section class="about">
+        <h1>關於我</h1>
+        <p>一位浪費28年生命發現興趣及志向的男孩子㊝</p>
+        <p>2015年於<font color="Orange"><b>成功大學土木系</b></font>畢業<br>
+          當時在學校只學過簡單的Fortran和C語言各一學期，當時並沒特別對程式語言感興趣。</p>
+        <p>於同年入伍<font color="Green"><b>通訊光電暨電子器材基地勤務廠</b></font>(通基廠)<br>
+          並且因為還沒想到未來要做甚麼，就先簽了自願役，想說能在單位當中慢慢準備考公職。<br>
+          結果在單位當中遇到了許多優秀的義務役，不乏台大碩士、成大、台科大畢業的資工系；<br>
+          在一次被派訓學習網頁設計時就決定未來轉職為網頁程式設計師。
+        </p>
+        <p>2017年利用公餘進修的時間進<font color="Pink"><b>健行科大資工系</b></font><br>
+          在裡面奠定了C語言、Python、JavaScript、HTML、PHP及SQL的基礎。</p>
+        <p>2019年於<font color="red"><b>五倍紅寶石學院</b></font>中的高見龍及卡米狗之父-郭佳甯底下學習<br>
+          更加深了網頁基礎，並更加學習了Git、Ruby及ROR。</p>
+        <p>於同年退伍後進<font color="blue"><b>資策會</b></font><br>
+          除了再再加深一次網頁基礎外，並學習了Java、Android及雲端運算等程式設計。</p>
+      </section>
+      <hr>
+      <section class="contacts-and-skills">
+        <section class="contacts">
+          <h1>聯絡資訊</h1>
+          <ul>
+            <li><i class="far fa-address-card"></i> 謝戍乂 Soowii</li>
+            <li><i class="fas fa-phone"></i> +886932276826</li>
+            <li><i class="fas fa-map-marked-alt"></i> 桃園市中壢區西園路六之五號三樓</li>
+            <li><i class="far fa-envelope"></i> vinceshieh@yahoo.com.tw</li>
+          </ul>
+        </section>
+        <section class="skills">
+          <h1>技術</h1>
+          <ul>
+            <li><i class="fab fa-python"></i> Python</li>
+            <li><i class="fab fa-html5"></i> HTML</li>
+            <li><i class="fab fa-css3-alt"></i> CSS</li>
+            <li><i class="fab fa-js"></i> JavaScript</li>
+            <li><i class="fab fa-php"></i> PHP</li>
+            <li><i class="fas fa-code-branch"></i> Git</li>
+            <li><i class="fas fa-gem"></i> Ruby</li>
+            <li><i class="fab fa-java"></i> Java</li>
+          </ul>
+        </section>
+      </section>
+    </section>
+    <div class="clearfix"></div>
+  </main>
 </body>
 </html>
