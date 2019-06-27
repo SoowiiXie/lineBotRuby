@@ -3,7 +3,7 @@ class EventProcessor
     return random_image if text == "抽"
     return fortune if text == "占卜"
     return fun_slots if text == "大冒險"
-    return sheet2(text) if text.instance_of? Integer # => true
+    return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
     return sheet(text)
   end
@@ -102,8 +102,9 @@ class EventProcessor
           {
             "type": "action",
             "action": {
-			  "type": "uri",
-              "uri": "https://thxu.herokuapp.com/"
+              "type": "message",
+              "label": "作者",
+              "text": "作者"
             }
           }   
         ]
@@ -111,25 +112,14 @@ class EventProcessor
     }
   end
 
-  def sheet2(text)
-    call_sheety_api2.each do |data|
-      code = data["code"]
-      name = data["name"]
-      price = data["price"]
-      if code.to_s == text || name == text
-        return {  
-          "type": "text",
-          "text": "#{code} #{name}的當前價格為: #{price}"
+  def indexMe
+    "type": "action",
+        "action": {
+			"type": "uri",
+            "uri": "https://thxu.herokuapp.com/"
         }
-      end
     end
     return nil
-  end
-
-  def call_sheety_api2
-    uri = URI("https://api.sheety.co/64faa8a0-2e5a-4892-a49b-071815d157ff")
-    body = Net::HTTP.get(uri)
-    JSON.parse(body)
   end
 
   def sheet(text)
