@@ -105,7 +105,7 @@ class EventProcessor
 			  "type": "uri",
               "uri": "https://thxu.herokuapp.com/"
             }
-          },          
+          }   
         ]
       }
     }
