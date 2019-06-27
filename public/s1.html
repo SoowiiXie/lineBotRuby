@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<title>JavaScript的變數宣告、輸出入及運算式</title>
+<meta charset="utf-8">
+<style>
+div {
+    width:300px;
+    border: 2px blue solid;
+    margin: 5px;
+}    
+</style>
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <a href="index.html"><img src="img/logo-001.png"></a>
+        </div>
+    </header>
+    <div id="menu-wrapper">
+        
+    </div>
+    <div id="wrapper">
+        <aside id="aside" >
+            <button class="btn"><a href="index.html">首頁</a></button>
+        </aside>
+    </div>
+<div id="id1"></div>
+<div id="id2"></div>
+<div id="id3"></div>
+<div id="id4"></div>
+<div id="id5"></div>
+<div id="id6"></div>
+<div id="id7"></div>
+<div id="id8"></div>
+<div id="id9"></div>
+<div id="id10"></div>
+<div id="id11"></div>
+<div id="id12"></div>
+<div id="id13"></div>
+<script>
+var name=prompt("input your name:","");
+var str="your name is:";
+alert("your name is"+name);
+document.write(str+name+"<br>");
+var y,z,k;
+y=8 , z=5;
+k=y+z;
+document.getElementById("id1").innerHTML = k;
+k=y-z;
+document.getElementById("id2").innerHTML = k;
+k=y*z;
+document.getElementById("id3").innerHTML = k;
+k=y/z;
+document.getElementById("id4").innerHTML = k;
+k=y%z;
+document.getElementById("id5").innerHTML = k;
+y++;
+document.getElementById("id6").innerHTML = y;
+y--;
+document.getElementById("id7").innerHTML = y;
+
+document.getElementById("id8").innerHTML = "(y=8) > (z=5) : "+(y>z);
+document.getElementById("id9").innerHTML = "(y=8) == (z=5) : "+(y==z);
+document.getElementById("id10").innerHTML = "(y=8) != (z=5) : "+(y!=z);
+document.getElementById("id11").innerHTML = "y=8,z=5 (y>=55) && (z<=89) : "+((y>=55)&&(z<=89));
+document.getElementById("id12").innerHTML = "y=8,z=5 (y>=71) || (z<=43) : "+((y>=71)||(z<=43));
+document.getElementById("id13").innerHTML = "y=8 ! (y>=87) : "+!(y>=87);
+
+
+</script>
+</body>
+</html>
