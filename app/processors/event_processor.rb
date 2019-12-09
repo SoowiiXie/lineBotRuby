@@ -4,9 +4,8 @@ class EventProcessor
     return fortune if text == "占卜"
     return fun_slots if text == "大冒險"
     return indexMe if text == "作者"
-    return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu"].include? text
+    return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
     return sheet2(text) if text == "吃"
-    # return sheetRandom(text) if text == "抽號碼"
     return sheet(text)
   end
 
@@ -83,7 +82,7 @@ class EventProcessor
   def menu
     return {
       "type": "text",
-      "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」, 「抽號碼」,股名或股號,DA106同學的座號或姓名",
+      "text": "請輸入「抽」,「占卜」或「大冒險」",
       "quickReply": {
         "items": [
           {
@@ -114,16 +113,8 @@ class EventProcessor
             "type": "action",
             "action": {
               "type": "message",
-              "label": "吃",
-              "text": "吃"
-            },
-          }
-          {
-            "type": "action",
-            "action": {
-              "type": "message",
-              "label": "抽號碼",
-              "text": "抽號碼"
+              "label": "作者",
+              "text": "作者"
             }
           }   
         ]
@@ -143,15 +134,7 @@ class EventProcessor
       facebook = classmate["facebook"]
       live = classmate["宿舍住處"]
       if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
-#         if (classmate["number"]>=1101)
-#           return {  
-#           "type": "text",
-#           "text": "股名：#{name}
-# 股號：#{number}
-# 價格：#{stnumber}"
-#         }
-#         else
-          return {  
+        return {  
           "type": "text",
           "text": "姓名：#{name}
 座號：#{number}
@@ -163,29 +146,10 @@ LINE：#{line}
 Facebook：#{facebook}
 宿舍住處：#{live}"
         }
-        # end
       end
     end
     return nil
   end
-
-#   def sheetRandom(text)
-#     id1To41 = [*1..41].sample(1)
-#     call_sheety_api["classmate"].each do |classmate|
-#       number = classmate["number"]
-#       name = classmate["name"]
-#       nickname = classmate["nickname"]
-#       if classmate["number"] == id1To41[0]
-#         return {  
-#           "type": "text",
-#           "text": "姓名：#{name}
-# 座號：#{number}
-# 綽號：#{nickname}"
-#         }
-#       end
-#     end
-#     return nil
-#   end
 
   def call_sheety_api
     uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
@@ -194,7 +158,7 @@ Facebook：#{facebook}
   end
 
   def sheet2(text)
-    id51To100 = [*51..92].sample(1)
+    id51To100 = [*51..200].sample(1)
     call_sheety_api2["food"].each do |food|
       classify = food["分類"]
       stores = food["stores"]
