@@ -5,6 +5,7 @@ class EventProcessor
     return fun_slots if text == "大冒險"
     return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
+    return sheet2(text) if text == "吃"
     return sheet(text)
   end
 
@@ -143,8 +144,7 @@ eMail：#{eMail}
 手機：#{phone}
 LINE：#{line}
 Facebook：#{facebook}
-宿舍住處：#{live}
-"
+宿舍住處：#{live}"
         }
       end
     end
@@ -153,6 +153,32 @@ Facebook：#{facebook}
 
   def call_sheety_api
     uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
+    body = Net::HTTP.get(uri)
+    JSON.parse(body)
+  end
+
+  def sheet2(text)
+    id51To100 = [*51..92].sample(1)
+    call_sheety_api2["food"].each do |food|
+      classify = food["分類"]
+      stores = food["stores"]
+      price = food["price"]
+      apprise = food["評價"]
+      if ((food["id51To100"] == id51To100)
+        return {  
+          "type": "text",
+          "text": "分類：#{classify}
+店名：#{stores}
+價位：#{price}
+評價：#{apprise}"
+        }
+      end
+    end
+    return nil
+  end
+
+  def call_sheety_api2
+    uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/food")
     body = Net::HTTP.get(uri)
     JSON.parse(body)
   end
