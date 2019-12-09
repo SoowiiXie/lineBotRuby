@@ -164,7 +164,7 @@ Facebook：#{facebook}
       stores = food["stores"]
       price = food["price"]
       apprise = food["評價"]
-      if (food["id51To100"].to_s == id51To100.to_s)
+      if (food["id51To100"] == id51To100)
         return {  
           "type": "text",
           "text": "分類：#{classify}
