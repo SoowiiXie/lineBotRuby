@@ -223,6 +223,10 @@ Facebook：#{facebook}
   end
 
   def weatherMain(text)
+    text="臺北市" if text="台北市"
+    text="臺中市" if text="台中市"
+    text="臺南市" if text="台南市"
+    text="桃園市" if text="中壢市"
     if all_city.include? text
       weather = city_weather(text)
       weather_info = "#{text}的天氣：
