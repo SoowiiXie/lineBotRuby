@@ -6,7 +6,7 @@ class EventProcessor
     return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
     return sheet2(text) if text == "吃"
-    return sheetRandom if text == "抽號碼"
+    return sheetRandom(text) if text == "抽號碼"
     return sheet(text)
   end
 
