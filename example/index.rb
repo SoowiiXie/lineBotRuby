@@ -123,10 +123,10 @@ class EventProcessor
 
   def sheet(text)
     call_sheety_api.each do |classmate|
-      if classmate["name"].to_s == text
+      if classmate["number"].to_s == text
         return {  
           "type": "text",
-          "text": classmate["number"].to_s
+          "text": classmate["name"].to_s
         }
       end
     end
