@@ -123,7 +123,7 @@ class EventProcessor
 
   def sheet(text)
     call_sheety_api.each do |data|
-      if (data["name"].to_s == text)
+      if data["name"].to_s == text
         return {  
           "type": "text",
           "text": data["number"].to_s
@@ -134,9 +134,9 @@ class EventProcessor
   end
 
   def call_sheety_api
-#   uri = URI("https://api.sheety.co/6110fffb-76e4-4d8f-9ca1-b27e2c31da26")
-#   2PACX-1vSmm2rcqveEByN-hovtbDBUycCq-O7i816xPHjD6wqp_a7V56RGDoyJjoeWeBNIugm4N5iMIQnbM_rI
     uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
+#   2PACX-1vSmm2rcqveEByN-hovtbDBUycCq-O7i816xPHjD6wqp_a7V56RGDoyJjoeWeBNIugm4N5iMIQnbM_rI
+#   uri = URI("https://docs.google.com/spreadsheets/d/e/2PACX-1vSmm2rcqveEByN-hovtbDBUycCq-O7i816xPHjD6wqp_a7V56RGDoyJjoeWeBNIugm4N5iMIQnbM_rI/pub?output=csv")
     body = Net::HTTP.get(uri)
     JSON.parse(body)
   end
