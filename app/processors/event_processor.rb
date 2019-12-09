@@ -158,13 +158,13 @@ Facebook：#{facebook}
   end
 
   def sheet2(text)
-    id51To100 = [*51..92].sample(1).to_s
+    id51To100 = [*51..92].sample(1)
     call_sheety_api2["food"].each do |food|
       classify = food["分類"]
       stores = food["stores"]
       price = food["price"]
       apprise = food["評價"]
-      if (food["id51To100"].to_s == id51To100)
+      if (food["id51To100"] == id51To100[0])
         return {  
           "type": "text",
           "text": "分類：#{classify}
