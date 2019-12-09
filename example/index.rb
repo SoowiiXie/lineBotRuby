@@ -137,9 +137,5 @@ class EventProcessor
     uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
     body = Net::HTTP.get(uri)
     JSON.parse(body)
-    return {  
-      "type": "text",
-      "text": "1"
-    }
   end
 end
