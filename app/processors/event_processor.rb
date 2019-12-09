@@ -64,21 +64,33 @@ class EventProcessor
 
   def indexMe
     return {
-      "type": "text",
-      "text": "作者的自介網站",
-      "quickReply": {
-        "items": [
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "官網",
-              "uri": "https://www.kamigo.tw/"
+      "type": "flex",
+      "altText": "目錄選單",
+      "contents": {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "作者自介網站",
+                    "uri": "https://thxu.herokuapp.com/"
+                  },
+                  "style": "primary",
+                  "margin": "md"
+                }
+              ],
+              "margin": "md"
             }
-            "style": "primary",
-            "margin": "md"            
-          }
-        ]
+          ]
+        }
       }
     }
   end
