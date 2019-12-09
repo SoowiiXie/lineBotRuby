@@ -163,6 +163,7 @@ LINE：#{line}
 Facebook：#{facebook}
 宿舍住處：#{live}"
         }
+        end
       end
     end
     return nil
