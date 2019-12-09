@@ -124,10 +124,18 @@ class EventProcessor
   def sheet(text)
     call_sheety_api["classmate"].each do |classmate|
       if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
+        number = data["number"]
+        stnumber = data["學號"]
+        name = data["name"]
+        nickname = data["nickname"]
+        eMail = data["eMail"]
+        phone = data["phone"]
+        line = data["line"]
+        facebook = data["facebook"]
+        live = data["宿舍住處"]
         return {  
           "type": "text",
-          "text": classmate["name"].to_s,
-          classmate["eMail"].to_s,
+          "text": "姓名#{name}\n 學號#{stnumber}\n #{number}"
         }
       end
     end
