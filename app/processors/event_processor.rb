@@ -8,7 +8,7 @@ class EventProcessor
     return sheetRandom(text) if text["抽號碼"]
     return random_image if text["抽"]
     return weatherMain(text) if text["市"] or text["縣"]
-    return answer(text) if ["嗎", "?", "？"].include? text
+    return answer(text) if text["嗎"] or text["?"] or text["？"]
     return sheet(text)
   end
 
@@ -287,9 +287,7 @@ Facebook：#{facebook}
   def answer(text)
     message = {
       "type": "text",
-      #{}"text": "hello,#{text}"+"史密打",
       "text": text.tr('嗎', '').tr('?？', '!！').tr('妳你', '我我').tr('我', '你')
-
     }
     return message
   end
