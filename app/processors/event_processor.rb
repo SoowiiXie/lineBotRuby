@@ -65,7 +65,8 @@ class EventProcessor
   def indexMe
       return {
            "action": {
-                  "type": "uri",
+             "type": "uri",
+             "label": "官網",
              "uri": "https://thxu.herokuapp.com/"
             }
     }
