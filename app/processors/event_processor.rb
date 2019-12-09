@@ -142,13 +142,13 @@ class EventProcessor
       facebook = classmate["facebook"]
       live = classmate["宿舍住處"]
       if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
-        if (classmate["number"]>=1101)
-          return {  
-          "type": "text",
-          "text": "股名：#{name}
-股號：#{number}
-價格：#{stnumber}"
-        }
+#         if (classmate["number"]>=1101)
+#           return {  
+#           "type": "text",
+#           "text": "股名：#{name}
+# 股號：#{number}
+# 價格：#{stnumber}"
+#         }
         else
           return {  
           "type": "text",
