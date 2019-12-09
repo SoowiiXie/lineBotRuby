@@ -75,6 +75,8 @@ class EventProcessor
               "label": "官網",
               "uri": "https://www.kamigo.tw/"
             }
+            "style": "primary",
+            "margin": "md"            
           }
         ]
       }
