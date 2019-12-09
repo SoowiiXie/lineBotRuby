@@ -126,7 +126,8 @@ class EventProcessor
       if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
         return {  
           "type": "text",
-          "text": classmate["eMail"].to_s
+          "text": classmate["name"].to_s,
+          classmate["eMail"].to_s,
         }
       end
     end
