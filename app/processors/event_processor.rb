@@ -3,7 +3,7 @@ class EventProcessor
     return fortune if text["占卜"]
     return fun_slots if text["大冒險"]
     return indexMe if text == "作者"
-    return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu"].include? text
+    return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu","？"].include? text
     return sheet2(text) if text["吃"]
     return sheetRandom(text) if text["抽號碼"]
     return random_image if text["抽"]

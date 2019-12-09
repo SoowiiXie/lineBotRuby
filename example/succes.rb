@@ -1,12 +1,14 @@
 class EventProcessor
     def process(text)
-      return random_image if text == "抽"
-      return fortune if text == "占卜"
-      return fun_slots if text == "大冒險"
+      return fortune if text["占卜"]
+      return fun_slots if text["大冒險"]
       return indexMe if text == "作者"
-      return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu"].include? text
-      return sheet2(text) if text == "吃"
-      return sheetRandom(text) if text == "抽號碼"
+      return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu","？"].include? text
+      return sheet2(text) if text["吃"]
+      return sheetRandom(text) if text["抽號碼"]
+      return random_image if text["抽"]
+      return weatherMain(text) if text["市"] or text["縣"]
+      return answer(text) if text["嗎"] or text["?"] or text["？"]
       return sheet(text)
     end
   
@@ -83,7 +85,7 @@ class EventProcessor
     def menu
       return {
         "type": "text",
-        "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」,「抽號碼」,股票的股號或股名,DA106同學的座號或姓名",
+        "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」,「抽號碼」,「XX市/縣」,股票的股號或股名,DA106同學的座號或姓名",
         "quickReply": {
           "items": [
             {
@@ -219,6 +221,76 @@ class EventProcessor
       uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/food")
       body = Net::HTTP.get(uri)
       JSON.parse(body)
+    end
+  
+    def weatherMain(text)
+      text="臺北市" if text=="台北市"
+      text="臺中市" if text=="台中市"
+      text="臺南市" if text=="台南市"
+      text="桃園市" if text=="中壢市"
+      if all_city.include? text
+        weather = city_weather(text)
+        weather_info = "#{text}的天氣：
+  天氣現象：#{weather[:wx]}
+  舒適度：#{weather[:ci]}
+  溫度：攝氏 #{weather[:min_t]} ~ #{weather[:max_t]} 度
+  降雨機率：#{weather[:pop]}%"
+        return {
+          "type": "text",
+          "text": weather_info
+        }
+      end
+    end
+  
+    def all_city
+      ["臺北市", "新北市", "桃園市", "臺中市", "臺南市", "高雄市", "基隆市", "新竹縣", "新竹市", "苗栗縣", "彰化縣", "南投縣", "雲林縣", "嘉義縣", "嘉義市", "屏東縣", "宜蘭縣", "花蓮縣", "臺東縣", "澎湖縣", "金門縣", "連江縣"]
+    end
+  
+    def call_weather_api
+      uri = URI("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-1D147D77-107C-4005-8F8E-94CE678C3779&downloadType=WEB&format=JSON")
+      body = Net::HTTP.get(uri)
+      JSON.parse(body)
+    end
+  
+    def city_weather(city)
+      call_weather_api["cwbopendata"]["dataset"]["location"].each do |location|
+        if location["locationName"] == city
+          wx = location["weatherElement"].find do |weather_element|
+            weather_element["elementName"] == "Wx"
+          end
+          
+          max_t = location["weatherElement"].find do |weather_element|
+            weather_element["elementName"] == "MaxT"
+          end
+          
+          min_t = location["weatherElement"].find do |weather_element|
+            weather_element["elementName"] == "MinT"
+          end
+          
+          ci = location["weatherElement"].find do |weather_element|
+            weather_element["elementName"] == "CI"
+          end
+          
+          pop = location["weatherElement"].find do |weather_element|
+            weather_element["elementName"] == "PoP"
+          end
+  
+          return {
+            "wx": wx["time"][0]["parameter"]["parameterName"],
+            "max_t": max_t["time"][0]["parameter"]["parameterName"],
+            "min_t": min_t["time"][0]["parameter"]["parameterName"],
+            "ci": ci["time"][0]["parameter"]["parameterName"],
+            "pop": pop["time"][0]["parameter"]["parameterName"],
+          }
+        end
+      end
+    end
+    def answer(text)
+      message = {
+        "type": "text",
+        "text": text.tr('嗎', '').tr('?？', '!！').tr('妳你', '我我').tr('我', '你')
+      }
+      return message
     end
   end
   
