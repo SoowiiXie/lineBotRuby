@@ -8,6 +8,7 @@ class EventProcessor
     return sheetRandom(text) if text["抽號碼"]
     return random_image if text["抽"]
     return weatherMain(text) if text["市"] or text["縣"]
+    return answer(text) if ["嗎", "?", "？"].include? text
     return sheet(text)
   end
 
@@ -226,7 +227,6 @@ Facebook：#{facebook}
     text="臺北市" if text="台北市"
     text="臺中市" if text="台中市"
     text="臺南市" if text="台南市"
-    text="桃園市" if text="中壢市"
     if all_city.include? text
       weather = city_weather(text)
       weather_info = "#{text}的天氣：
@@ -283,5 +283,14 @@ Facebook：#{facebook}
         }
       end
     end
+  end
+  def answer(text)
+    message = {
+      "type": "text",
+      #{}"text": "hello,#{text}"+"史密打",
+      "text": text.tr('嗎', '').tr('?？', '!！').tr('妳你', '我我').tr('我', '你')
+
+    }
+    return message
   end
 end
