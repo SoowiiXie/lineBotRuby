@@ -226,11 +226,10 @@ Facebook：#{facebook}
     if all_city.include? text
       weather = city_weather(text)
       weather_info = "#{text}的天氣：
-        天氣現象：#{weather[:wx]}
-        舒適度：#{weather[:ci]}
-        溫度：攝氏 #{weather[:min_t]} ~ #{weather[:max_t]} 度
-        降雨機率：#{weather[:pop]}%
-      "
+天氣現象：#{weather[:wx]}
+舒適度：#{weather[:ci]}
+溫度：攝氏 #{weather[:min_t]} ~ #{weather[:max_t]} 度
+降雨機率：#{weather[:pop]}%"
       return {
         "type": "text",
         "text": weather_info
