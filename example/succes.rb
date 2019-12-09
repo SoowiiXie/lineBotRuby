@@ -4,7 +4,7 @@ class EventProcessor
       return fortune if text == "占卜"
       return fun_slots if text == "大冒險"
       return indexMe if text == "作者"
-      return menu if ["目錄", "?", "help", "你好", "hi", "hello", "."].include? text
+      return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu"].include? text
       return sheet2(text) if text == "吃"
       return sheetRandom(text) if text == "抽號碼"
       return sheet(text)
@@ -83,7 +83,7 @@ class EventProcessor
     def menu
       return {
         "type": "text",
-        "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」, DA106同學的「座號」或「姓名」",
+        "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」,「抽號碼」,股票的股號或股名,DA106同學的座號或姓名",
         "quickReply": {
           "items": [
             {
@@ -114,8 +114,16 @@ class EventProcessor
               "type": "action",
               "action": {
                 "type": "message",
-                "label": "作者",
-                "text": "作者"
+                "label": "吃",
+                "text": "吃"
+              }
+            },
+            {
+              "type": "action",
+              "action": {
+                "type": "message",
+                "label": "抽號碼",
+                "text": "抽號碼"
               }
             }   
           ]
@@ -135,7 +143,16 @@ class EventProcessor
         facebook = classmate["facebook"]
         live = classmate["宿舍住處"]
         if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
-          return {  
+          if (classmate["number"]>=1101)
+            return {  
+            "type": "text",
+            "text": "股名：#{name}
+  股號：#{number}
+  價格：#{stnumber}"
+            }
+          
+          else
+            return {  
             "type": "text",
             "text": "姓名：#{name}
   座號：#{number}
@@ -146,7 +163,9 @@ class EventProcessor
   LINE：#{line}
   Facebook：#{facebook}
   宿舍住處：#{live}"
-          }
+            }
+          
+          end
         end
       end
       return nil
