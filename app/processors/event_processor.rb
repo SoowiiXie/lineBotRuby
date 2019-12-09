@@ -135,7 +135,16 @@ class EventProcessor
       if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
         return {  
           "type": "text",
-          "text": "姓名#{name}\n 學號#{stnumber} #{number}"
+          "text": "姓名:#{name}
+          座號:#{number}
+          學號:#{stnumber}
+          綽號:#{nickname}
+          eMail:#{eMail}
+          手機:#{phone}
+          LINE:#{line}
+          Facebook:#{facebook}
+          宿舍住處:#{live}
+          "
         }
       end
     end
