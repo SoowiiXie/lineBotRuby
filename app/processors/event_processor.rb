@@ -59,11 +59,11 @@ class EventProcessor
   end
 
   def indexMe
-  	return {
- 	      "action": {
-			"type": "uri",
- 	        "uri": "https://thxu.herokuapp.com/"
-    	    }
+      return {
+           "action": {
+                  "type": "uri",
+             "uri": "https://thxu.herokuapp.com/"
+            }
     }
   end
 
@@ -122,11 +122,11 @@ class EventProcessor
   end
 
   def sheet(text)
-    call_sheety_api.each do |data|
-      if data["keyword"].to_s == text
+    call_sheety_api.each do |classmate|
+      if classmate["name"].to_s == text
         return {  
           "type": "text",
-          "text": data["message"].to_s
+          "text": classmate["eMail"].to_s
         }
       end
     end
@@ -134,7 +134,7 @@ class EventProcessor
   end
 
   def call_sheety_api
-    uri = URI("https://api.sheety.co/6110fffb-76e4-4d8f-9ca1-b27e2c31da26")
+    uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
     body = Net::HTTP.get(uri)
     JSON.parse(body)
   end
