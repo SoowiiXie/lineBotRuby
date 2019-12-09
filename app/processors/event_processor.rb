@@ -83,7 +83,7 @@ class EventProcessor
   def menu
     return {
       "type": "text",
-      "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」, DA106同學的「座號」或「姓名」",
+      "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」, 「抽號碼」,DA106同學的「座號」或「姓名」",
       "quickReply": {
         "items": [
           {
