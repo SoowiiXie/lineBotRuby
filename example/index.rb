@@ -138,6 +138,6 @@ class EventProcessor
 #   2PACX-1vSmm2rcqveEByN-hovtbDBUycCq-O7i816xPHjD6wqp_a7V56RGDoyJjoeWeBNIugm4N5iMIQnbM_rI
 #   uri = URI("https://docs.google.com/spreadsheets/d/e/2PACX-1vSmm2rcqveEByN-hovtbDBUycCq-O7i816xPHjD6wqp_a7V56RGDoyJjoeWeBNIugm4N5iMIQnbM_rI/pub?output=csv")
     body = Net::HTTP.get(uri)
-    JSON.parse(body)
+    # JSON.parse(body)
   end
 end
