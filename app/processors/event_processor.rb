@@ -63,12 +63,21 @@ class EventProcessor
   end
 
   def indexMe
-      return {
-           "action": {
-             "type": "uri",
-             "label": "官網",
-             "uri": "https://thxu.herokuapp.com/"
+    return {
+      "type": "text",
+      "text": "作者的自介網站",
+      "quickReply": {
+        "items": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "官網",
+              "uri": "https://www.kamigo.tw/"
             }
+          }
+        ]
+      }
     }
   end
 
