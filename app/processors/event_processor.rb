@@ -1,13 +1,13 @@
 class EventProcessor
   def process(text)
-    return random_image if text == "抽"
-    return fortune if text == "占卜"
-    return fun_slots if text == "大冒險"
+    return fortune if text["占卜"]
+    return fun_slots if text["大冒險"]
     return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu"].include? text
-    return sheet2(text) if text == "吃"
-    return sheetRandom(text) if text == "抽號碼"
-    return weatherMain(text)
+    return sheet2(text) if text["吃"]
+    return sheetRandom(text) if text["抽號碼"]
+    return random_image if text["抽"]
+    return weatherMain(text) if text["市"] or text["縣"]
     return sheet(text)
   end
 
@@ -84,7 +84,7 @@ class EventProcessor
   def menu
     return {
       "type": "text",
-      "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」,「抽號碼」,股票的股號或股名,DA106同學的座號或姓名",
+      "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」,「抽號碼」,「XX市/縣」,股票的股號或股名,DA106同學的座號或姓名",
       "quickReply": {
         "items": [
           {
