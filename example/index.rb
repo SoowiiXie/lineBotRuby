@@ -121,34 +121,22 @@ class EventProcessor
     }
   end
 
-  # def sheet(text)
-  #   call_sheety_api.each do |data|
-  #     if data["keyword"].to_s == text
-  #       return {  
-  #         "type": "text",
-  #         "text": data["message"].to_s
-  #       }
-  #     end
-  #   end
-  #   return nil
-  # end
-
   def sheet(text)
     call_sheety_api.each do |data|
-     
+      if (data["座號"].to_s == text)
         return {  
           "type": "text",
-          "text": data["message"].to_s
-        } if text == "吃"
+          "text": data["姓名"].to_s
+        }
       end
     end
     return nil
   end
 
   def call_sheety_api
-   uri = URI("https://api.sheety.co/6110fffb-76e4-4d8f-9ca1-b27e2c31da26")
+#   uri = URI("https://api.sheety.co/6110fffb-76e4-4d8f-9ca1-b27e2c31da26")
 #   2PACX-1vSmm2rcqveEByN-hovtbDBUycCq-O7i816xPHjD6wqp_a7V56RGDoyJjoeWeBNIugm4N5iMIQnbM_rI
-#   uri = URI("https://spreadsheets.google.com/feeds/cells/2PACX-1vSmm2rcqveEByN-hovtbDBUycCq-O7i816xPHjD6wqp_a7V56RGDoyJjoeWeBNIugm4N5iMIQnbM_rI/8/public/values?alt=json")
+    uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
     body = Net::HTTP.get(uri)
     JSON.parse(body)
   end
