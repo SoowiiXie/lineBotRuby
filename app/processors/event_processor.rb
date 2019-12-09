@@ -83,7 +83,7 @@ class EventProcessor
   def menu
     return {
       "type": "text",
-      "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」, 「抽號碼」,DA106同學的「座號」或「姓名」",
+      "text": "請輸入「抽」,「占卜」,「大冒險」,「吃」, 「抽號碼」,股名或股號,DA106同學的座號或姓名",
       "quickReply": {
         "items": [
           {
@@ -142,6 +142,13 @@ class EventProcessor
       facebook = classmate["facebook"]
       live = classmate["宿舍住處"]
       if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
+        if classmate["number"]>=1101
+          return {  
+          "type": "text",
+          "text": "股名：#{name}
+股號：#{number}
+價格：#{stnumber}"
+        }
         return {  
           "type": "text",
           "text": "姓名：#{name}
