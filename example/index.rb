@@ -122,7 +122,7 @@ class EventProcessor
   end
 
   def sheet(text)
-    call_weather_api["classmate"].each do |classmate|
+    call_sheety_api["classmate"].each do |classmate|
       if data["name"].to_s == text
         return {  
           "type": "text",
