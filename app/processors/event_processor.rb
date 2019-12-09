@@ -149,7 +149,8 @@ class EventProcessor
 股號：#{number}
 價格：#{stnumber}"
         }
-        return {  
+        else
+          return {  
           "type": "text",
           "text": "姓名：#{name}
 座號：#{number}
