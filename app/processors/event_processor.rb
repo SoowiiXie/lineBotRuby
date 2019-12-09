@@ -6,7 +6,7 @@ class EventProcessor
     return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu"].include? text
     return sheet2(text) if text == "吃"
-    return sheetRandom(text) if text == "抽號碼"
+    # return sheetRandom(text) if text == "抽號碼"
     return sheet(text)
   end
 
@@ -167,23 +167,23 @@ Facebook：#{facebook}
     return nil
   end
 
-  def sheetRandom(text)
-    id1To41 = [*1..41].sample(1)
-    call_sheety_api["classmate"].each do |classmate|
-      number = classmate["number"]
-      name = classmate["name"]
-      nickname = classmate["nickname"]
-      if classmate["number"] == id1To41[0]
-        return {  
-          "type": "text",
-          "text": "姓名：#{name}
-座號：#{number}
-綽號：#{nickname}"
-        }
-      end
-    end
-    return nil
-  end
+#   def sheetRandom(text)
+#     id1To41 = [*1..41].sample(1)
+#     call_sheety_api["classmate"].each do |classmate|
+#       number = classmate["number"]
+#       name = classmate["name"]
+#       nickname = classmate["nickname"]
+#       if classmate["number"] == id1To41[0]
+#         return {  
+#           "type": "text",
+#           "text": "姓名：#{name}
+# 座號：#{number}
+# 綽號：#{nickname}"
+#         }
+#       end
+#     end
+#     return nil
+#   end
 
   def call_sheety_api
     uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
