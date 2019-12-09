@@ -143,14 +143,14 @@ class EventProcessor
       facebook = classmate["facebook"]
       live = classmate["宿舍住處"]
       if ((classmate["number"].to_s == text) or (classmate["name"].to_s == text))
-        if (classmate["number"]>=1101)
-          return {  
-          "type": "text",
-          "text": "股名：#{name}
-股號：#{number}
-價格：#{stnumber}"
-        }
-        else
+#         if (classmate["number"]>=1101)
+#           return {  
+#           "type": "text",
+#           "text": "股名：#{name}
+# 股號：#{number}
+# 價格：#{stnumber}"
+#         }
+#         else
           return {  
           "type": "text",
           "text": "姓名：#{name}
@@ -163,29 +163,29 @@ LINE：#{line}
 Facebook：#{facebook}
 宿舍住處：#{live}"
         }
-        end
+        # end
       end
     end
     return nil
   end
 
-  def sheetRandom(text)
-    id1To41 = [*1..41].sample(1)
-    call_sheety_api["classmate"].each do |classmate|
-      number = classmate["number"]
-      name = classmate["name"]
-      nickname = classmate["nickname"]
-      if classmate["number"] == id1To41[0]
-        return {  
-          "type": "text",
-          "text": "姓名：#{name}
-座號：#{number}
-綽號：#{nickname}"
-        }
-      end
-    end
-    return nil
-  end
+#   def sheetRandom(text)
+#     id1To41 = [*1..41].sample(1)
+#     call_sheety_api["classmate"].each do |classmate|
+#       number = classmate["number"]
+#       name = classmate["name"]
+#       nickname = classmate["nickname"]
+#       if classmate["number"] == id1To41[0]
+#         return {  
+#           "type": "text",
+#           "text": "姓名：#{name}
+# 座號：#{number}
+# 綽號：#{nickname}"
+#         }
+#       end
+#     end
+#     return nil
+#   end
 
   def call_sheety_api
     uri = URI("https://v2-api.sheety.co/af46c17763293c918b7674dc2134a95d/da106/classmate")
