@@ -80,7 +80,7 @@ class EventProcessor
                   "type": "button",
                   "action": {
                     "type": "uri",
-                    "label": "目前網頁尚只能用電腦版瀏覽",
+                    "label": "目前網頁尚只能用桌機版本瀏覽",
                     "uri": "https://thxu.herokuapp.com/"
                   },
                   "style": "primary",
