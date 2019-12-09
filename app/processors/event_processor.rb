@@ -158,7 +158,7 @@ Facebook：#{facebook}
   end
 
   def sheet2(text)
-    id51To100 = [*51..92].sample(1)
+    id51To100 = (*51..92).sample(1)
     call_sheety_api2["food"].each do |food|
       classify = food["分類"]
       stores = food["stores"]
