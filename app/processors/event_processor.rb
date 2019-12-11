@@ -312,7 +312,7 @@ Facebook：#{facebook}
   def answer(text)
     message = {
       "type": "text",
-      "text": text.tr('嗎', '').tr('?？', '!！').tr('妳', '我').tr('我', '你').tr('你', '我')
+      "text": text.tr('我', '你').tr('嗎', '').tr('?？', '!！').tr('妳', '我').tr('你', '我')
     }
     return message
   end
