@@ -336,8 +336,8 @@ end
 # https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=24.9670306,121.1921616&radius=1000&types=food&name=&language=zh-TW&key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI
 
 def mapGoogle
-  方法一
-  sName=['09e0ae0cc0721b2fb8d2b43e84e7e9ddd1aaab02','b'];
+  # 方法一
+  sName=['09e0ae0cc0721b2fb8d2b43e84e7e9ddd1aaab02','b']
   # call_google_api["results"].each do |results|
   #   sName.push(results["name"])
   # end
@@ -350,7 +350,7 @@ def mapGoogle
     vicinity = results["vicinity"]
     # 方法二
     # rStName = storeName.sample(1)
-    if  (results["id"].to_a == sName[0].to_a)
+    if  (results["id"] == sName[0])
       return {  
         "type": "text",
         "text": "店名：#{storeName}
