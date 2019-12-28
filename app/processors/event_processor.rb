@@ -339,19 +339,20 @@ end
 
 def mapGoogle(text)
   方法一
-  sName=["雞師父 醬汁照燒雞排"]
+  sName=["09e0ae0cc0721b2fb8d2b43e84e7e9ddd1aaab02"]
   # call_google_api["results"].each do |results|
   #   sName.push(results["name"])
   # end
   # rStName = sName.sample(1)
   call_google_api["results"].each do |results|
+    sid = results["id"]
     storeName = results["name"]
     op = results["opening_hours"]
     rating = results["rating"]
     vicinity = results["vicinity"]
     # 方法二
     # rStName = storeName.sample(1)
-    if  (results["name"] == sName[0])
+    if  (results["id"] == sName[0])
       return {  
         "type": "text",
         "text": "店名：#{storeName}
