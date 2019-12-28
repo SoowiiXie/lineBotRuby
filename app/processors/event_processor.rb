@@ -340,10 +340,10 @@ end
 def mapGoogle(text)
   方法一
   sName=["雞師父 醬汁照燒雞排"]
-  call_google_api["results"].each do |results|
-    sName.push(results["name"])
-  end
-  rStName = sName.sample(1)
+  # call_google_api["results"].each do |results|
+  #   sName.push(results["name"])
+  # end
+  # rStName = sName.sample(1)
   call_google_api["results"].each do |results|
     storeName = results["name"]
     op = results["opening_hours"]
@@ -351,7 +351,7 @@ def mapGoogle(text)
     vicinity = results["vicinity"]
     # 方法二
     # rStName = storeName.sample(1)
-    if  (results["name"] == rStName[0])
+    if  (results["name"] == sName[0])
       return {  
         "type": "text",
         "text": "店名：#{storeName}
