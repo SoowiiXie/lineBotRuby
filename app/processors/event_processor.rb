@@ -1,7 +1,7 @@
 class EventProcessor
   def process(text)
     return mapGoogle(text) if text["謝謝你9527"]
-    return fortune if text["占卜"]
+    return fortune if text["謝謝你9528"]
     return fun_slots if text["大冒險"]
     return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu","？"].include? text
@@ -338,16 +338,17 @@ end
 # https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=24.9670306,121.1921616&radius=1000&types=food&name=&language=zh-TW&key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI
 
 def mapGoogle(text)
-  sName=[]
-  call_google_api["results"].each do |results|
-    sName.push(results["name"])
-  end
-  rStName = sName.sample(1)
+  # sName=[]
+  # call_google_api["results"].each do |results|
+  #   sName.push(results["name"])
+  # end
+  # rStName = sName.sample(1)
   call_google_api["results"].each do |results|
     storeName = results["name"]
     op = results["opening_hours"]
     rating = results["rating"]
     vicinity = results["vicinity"]
+    rStName = storeName.sample(1)
     if  (results["name"] == rStName[0])
       return {  
         "type": "text",
