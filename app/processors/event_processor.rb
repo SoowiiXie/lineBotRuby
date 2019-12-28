@@ -196,7 +196,6 @@ Facebook：#{facebook}
         end
       end
     end
-    return nil
   end
 # 通訊錄結束
 
@@ -216,7 +215,6 @@ Facebook：#{facebook}
         }
       end
     end
-    return nil
   end
 
   def call_sheety_api
