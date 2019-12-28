@@ -158,6 +158,7 @@ class EventProcessor
     }
   end
 
+  # 通訊錄開始
   def classmate(text)
     call_sheety_api["classmate"].each do |classmate|
       number = classmate["number"]
@@ -197,7 +198,7 @@ Facebook：#{facebook}
     end
     return nil
   end
-
+# 通訊錄結束
 
 # 抽號碼開始
   def randomNum
@@ -253,7 +254,7 @@ Facebook：#{facebook}
   end
 # 吃結束
 
-# 天氣
+# 天氣開始
   def weatherMain(text)
     text="臺北市" if text=="台北市"
     text="臺中市" if text=="台中市"
