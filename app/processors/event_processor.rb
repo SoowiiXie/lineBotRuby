@@ -244,7 +244,6 @@ Facebook：#{facebook}
         }
       end
     end
-    return nil
   end
 
   def call_sheety_api2
@@ -363,6 +362,5 @@ def mapGoogle
       }
     end
   end
-  return nil
 end
 # Goodle地圖結束
