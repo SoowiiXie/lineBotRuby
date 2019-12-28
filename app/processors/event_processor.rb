@@ -1,12 +1,12 @@
 class EventProcessor
   def process(text)
-    return mapGoogle(text) if text["謝謝你9527"]
+    return mapGoogle if text["謝謝你9527"]
     return fortune if text["占卜"]
     return fun_slots if text["大冒險"]
     return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu","？"].include? text
-    return sheet2(text) if text["吃"]
-    return sheetRandom(text) if text["抽號碼"]
+    return sheet2 if text["吃"]
+    return sheetRandom if text["抽號碼"]
     return random_image if text["抽"]
     return weatherMain(text) if text["市"] or text["縣"]
     return answer(text) if text["嗎"] or text["?"] or text["？"]
@@ -200,7 +200,7 @@ Facebook：#{facebook}
 
 
 # 抽號碼開始
-  def sheetRandom(text)
+  def sheetRandom
     id1To41 = [*1..41].sample(1)
     call_sheety_api["classmate"].each do |classmate|
       number = classmate["number"]
@@ -226,7 +226,7 @@ Facebook：#{facebook}
 # 抽號碼結束
 
 # 吃開始
-  def sheet2(text)
+  def sheet2
     id51To100 = [*51..91].sample(1)
     call_sheety_api2["food"].each do |food|
       classify = food["分類"]
@@ -337,7 +337,7 @@ def call_google_api
 end
 # https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=24.9670306,121.1921616&radius=1000&types=food&name=&language=zh-TW&key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI
 
-def mapGoogle(text)
+def mapGoogle
   方法一
   sName=['09e0ae0cc0721b2fb8d2b43e84e7e9ddd1aaab02','b'];
   # call_google_api["results"].each do |results|
