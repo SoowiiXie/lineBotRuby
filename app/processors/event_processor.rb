@@ -5,12 +5,12 @@ class EventProcessor
     return fun_slots if text["大冒險"]
     return indexMe if text == "作者"
     return menu if ["目錄", "?", "help", "你好", "hi", "hello", ".","menu","？"].include? text
-    return sheet2 if text["吃"]
-    return sheetRandom if text["抽號碼"]
+    return eat if text["吃"]
+    return randomNum if text["抽號碼"]
     return random_image if text["抽"]
     return weatherMain(text) if text["市"] or text["縣"]
     return answer(text) if text["嗎"] or text["?"] or text["？"]
-    return sheet(text)
+    return classmate(text)
   end
 
   def random_image
@@ -158,7 +158,7 @@ class EventProcessor
     }
   end
 
-  def sheet(text)
+  def classmate(text)
     call_sheety_api["classmate"].each do |classmate|
       number = classmate["number"]
       stnumber = classmate["學號"]
@@ -200,7 +200,7 @@ Facebook：#{facebook}
 
 
 # 抽號碼開始
-  def sheetRandom
+  def randomNum
     id1To41 = [*1..41].sample(1)
     call_sheety_api["classmate"].each do |classmate|
       number = classmate["number"]
@@ -226,7 +226,7 @@ Facebook：#{facebook}
 # 抽號碼結束
 
 # 吃開始
-  def sheet2
+  def eat
     id51To100 = [*51..91].sample(1)
     call_sheety_api2["food"].each do |food|
       classify = food["分類"]
