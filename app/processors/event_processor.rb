@@ -1,5 +1,6 @@
 class EventProcessor
   def process(text)
+    return mapGoogle(text) if text["謝謝你9527"]
     return fortune if text["占卜"]
     return fun_slots if text["大冒險"]
     return indexMe if text == "作者"
@@ -247,6 +248,8 @@ Facebook：#{facebook}
     JSON.parse(body)
   end
 
+
+# 天氣
   def weatherMain(text)
     text="臺北市" if text=="台北市"
     text="臺中市" if text=="台中市"
@@ -309,6 +312,9 @@ Facebook：#{facebook}
       end
     end
   end
+# 天氣結束
+
+# 回話AI開始
   def answer(text)
     message = {
       "type": "text",
@@ -317,3 +323,38 @@ Facebook：#{facebook}
     return message
   end
 end
+# 回話AI結束
+
+# Google地圖開始
+def call_google_api
+  uri = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+  + "location=24.9670306,121.1921616&"
+  + "radius=1000&"
+  + "types=food&"
+  + "name=&"
+  + "language=zh-TW&"
+  + "key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI")
+  body = Net::HTTP.get(uri)
+  JSON.parse(body)
+end
+# https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=24.9670306,121.1921616&radius=1000&types=food&name=&language=zh-TW&key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI
+
+def mapGoogle(text)
+  call_google_api["results"].each do |results|
+    sName.push(results["name"]);
+    rStName = sName.sample(1);
+    if  (results["name"] == rStName)
+      op = results["opening_hours"]
+      rating = results["rating"]
+      vicinity = results["vicinity"]
+      return {  
+        "type": "text",
+        "text": "店名：#{rStName}
+評價：#{rating}
+地址：#{vicinity}"
+      }
+    end
+  end
+  return nil
+end
+# Goodle地圖結束
