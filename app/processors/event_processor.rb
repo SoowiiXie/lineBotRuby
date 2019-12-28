@@ -327,13 +327,7 @@ end
 
 # Google地圖開始
 def call_google_api
-  uri = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-  + "location=24.9670306,121.1921616&"
-  + "radius=1000&"
-  + "types=food&"
-  + "name=&"
-  + "language=zh-TW&"
-  + "key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI")
+  uri = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=24.9670306,121.1921616&radius=1000&types=food&name=&language=zh-TW&key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI")
   body = Net::HTTP.get(uri)
   JSON.parse(body)
 end
@@ -341,6 +335,7 @@ end
 
 def mapGoogle(text)
   call_google_api["results"].each do |results|
+    sName=[];
     sName.push(results["name"]);
     rStName = sName.sample(1);
     if  (results["name"] == rStName)
