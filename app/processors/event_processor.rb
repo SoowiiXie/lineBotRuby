@@ -198,6 +198,8 @@ Facebook：#{facebook}
     return nil
   end
 
+
+# 抽號碼開始
   def sheetRandom(text)
     id1To41 = [*1..41].sample(1)
     call_sheety_api["classmate"].each do |classmate|
@@ -221,7 +223,9 @@ Facebook：#{facebook}
     body = Net::HTTP.get(uri)
     JSON.parse(body)
   end
+# 抽號碼結束
 
+# 吃開始
   def sheet2(text)
     id51To100 = [*51..91].sample(1)
     call_sheety_api2["food"].each do |food|
@@ -247,7 +251,7 @@ Facebook：#{facebook}
     body = Net::HTTP.get(uri)
     JSON.parse(body)
   end
-
+# 吃結束
 
 # 天氣
   def weatherMain(text)
@@ -334,17 +338,21 @@ end
 # https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=24.9670306,121.1921616&radius=1000&types=food&name=&language=zh-TW&key=AIzaSyAYmC8oUYc9DGAZn8hqZKakFeclhAbTRSI
 
 def mapGoogle(text)
+  sName=[]
   call_google_api["results"].each do |results|
-    sName=[];
-    sName.push(results["name"]);
-    rStName = sName.sample(1);
-    if  (results["name"] == rStName)
-      op = results["opening_hours"]
-      rating = results["rating"]
-      vicinity = results["vicinity"]
+    sName.push(results["name"])
+  end
+  rStName = sName.sample(1)
+  call_google_api["results"].each do |results|
+    storeName = results["name"]
+    op = results["opening_hours"]
+    rating = results["rating"]
+    vicinity = results["vicinity"]
+    if  (results["name"] == rStName[0])
       return {  
         "type": "text",
-        "text": "店名：#{rStName}
+        "text": "店名：#{storeName}
+營業：#{op}
 評價：#{rating}
 地址：#{vicinity}"
       }
