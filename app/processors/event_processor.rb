@@ -350,15 +350,18 @@ def mapGoogle
     vicinity = results["vicinity"]
     # 方法二
     # rStName = storeName.sample(1)
-    if  (results["id"].to_s == sName[0].to_s)
-      return {  
-        "type": "text",
-        "text": "店名：#{storeName}
-營業：#{op}
-評價：#{rating}
-地址：#{vicinity}"
-      }
-    end
+    # if  (results["id"].to_s == sName[0].to_s)
+#       return {  
+#         "type": "text",
+#         "text": "店名：#{storeName}
+# 營業：#{op}
+# 評價：#{rating}
+# 地址：#{vicinity}"
+#       }
+    #  end
   end
+        return {  
+        "type": "text",
+        "text": "店名："
 end
 # Goodle地圖結束
