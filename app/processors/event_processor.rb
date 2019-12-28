@@ -350,7 +350,7 @@ def mapGoogle
     vicinity = results["vicinity"]
     # 方法二
     # rStName = storeName.sample(1)
-    if  (results["id"].to_s == sName[0].to_s)
+    if  (results["id"].to_a == sName[0].to_a)
       return {  
         "type": "text",
         "text": "店名：#{storeName}
