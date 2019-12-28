@@ -339,7 +339,7 @@ end
 
 def mapGoogle(text)
   方法一
-  sName=['09e0ae0cc0721b2fb8d2b43e84e7e9ddd1aaab02']
+  sName=['09e0ae0cc0721b2fb8d2b43e84e7e9ddd1aaab02','b'];
   # call_google_api["results"].each do |results|
   #   sName.push(results["name"])
   # end
